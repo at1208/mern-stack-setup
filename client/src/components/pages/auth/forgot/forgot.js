@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
-import Layout from '../../../core/layout';
-import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.min.css';
-import './forgot.css'
 import { TextField } from '@material-ui/core';
+import Layout from '../../../core/layout';
+import React, { useState } from 'react';
 import { Button } from 'antd';
+import axios from 'axios';
+import './forgot.css'
+
+
 
 const Forgot = ({ history }) => {
     const [values, setValues] = useState({

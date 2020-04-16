@@ -1,6 +1,9 @@
-import React from 'react';
+import 'react-toastify/dist/ReactToastify.min.css';
 import Layout from '../core/layout'
 import 'antd/dist/antd.css'
+import React from 'react';
+
+
 
 const Home  = () => (
           <React.Fragment>

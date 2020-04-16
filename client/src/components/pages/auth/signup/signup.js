@@ -1,13 +1,13 @@
-  import React, { useState } from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import Layout from '../../../core/layout';
-import axios from 'axios';
-import { isAuth } from '../helpers';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.min.css';
-import './signup.css'
+import { Link, Redirect } from 'react-router-dom';
 import { TextField } from '@material-ui/core';
+import Layout from '../../../core/layout';
+import React, { useState } from 'react';
+import { isAuth } from '../helpers';
 import { Button } from 'antd';
+import axios from 'axios';
+import './signup.css'
+
 
 const Signup = () => {
     const [values, setValues] = useState({

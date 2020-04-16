@@ -1,11 +1,14 @@
- import React, { useState, useEffect } from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import Layout from './layout';
-import axios from 'axios';
 import { isAuth, getCookie, signout, updateUser } from '../pages/auth/helpers';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
+import React, { useState, useEffect } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import { TextField } from '@material-ui/core';
+import Layout from './layout';
+import axios from 'axios';
+
+
+
 import { Button } from 'antd';
 
 const Private = ({ history }) => {

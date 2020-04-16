@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import Layout from '../../../core/layout';
-import axios from 'axios';
-import { authenticate, isAuth } from '../helpers';
 import { ToastContainer, toast } from 'react-toastify';
-import Google from '../social/google';
-import Facebook from '../social/facebook';
-import 'react-toastify/dist/ReactToastify.min.css';
+import { Link, Redirect } from 'react-router-dom';
+import { authenticate, isAuth } from '../helpers';
 import { TextField } from '@material-ui/core';
+import Facebook from '../social/facebook';
+import Layout from '../../../core/layout';
+import React, { useState } from 'react';
+import Google from '../social/google';
 import { Button } from 'antd';
+import axios from 'axios';
 import './signin.css';
 
 

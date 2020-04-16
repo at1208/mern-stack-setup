@@ -1,9 +1,11 @@
-import React from 'react';
 import GoogleLogin from 'react-google-login';
-import axios from 'axios';
-import { Button } from 'antd';
 import { FaGoogle } from "react-icons/fa";
+import { Button } from 'antd';
+import React from 'react';
+import axios from 'axios';
 import './social.css'
+
+
 
 const Google = ({ informParent = f => f }) => {
     const responseGoogle = response => {

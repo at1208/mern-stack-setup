@@ -1,6 +1,6 @@
- import React, { Fragment } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { isAuth, signout } from '../pages/auth/helpers';
+import React, { Fragment } from 'react';
 import { Button } from 'antd'
 
 const Layout = ({ children, match, history }) => {

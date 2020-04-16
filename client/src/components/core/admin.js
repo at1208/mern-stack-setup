@@ -1,13 +1,13 @@
-
-import React, { useState, useEffect } from 'react';
-import { Link, Redirect } from 'react-router-dom';
-import Layout from './layout';
-import axios from 'axios';
 import { isAuth, getCookie, signout, updateUser } from '../pages/auth/helpers';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.min.css';
+import React, { useState, useEffect } from 'react';
+import { Link, Redirect } from 'react-router-dom';
 import { TextField } from '@material-ui/core';
+import Layout from './layout';
 import { Button } from 'antd';
+import axios from 'axios';
+
+
 
 const Admin = ({ history }) => {
   const [values, setValues] = useState({
@@ -78,7 +78,7 @@ const Admin = ({ history }) => {
               toast.error(error.response.data.error);
           });
   };
-console.log(role, email)
+ 
   const updateForm = () => (
       <form>
             <TextField id="role"

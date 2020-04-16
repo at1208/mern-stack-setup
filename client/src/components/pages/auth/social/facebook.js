@@ -1,8 +1,8 @@
-import React from 'react';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
-import axios from 'axios';
-import { Button } from 'antd'
 import { FaFacebookSquare } from "react-icons/fa";
+import { Button } from 'antd'
+import React from 'react';
+import axios from 'axios';
 import './social.css'
 
 const Facebook = ({ informParent = f => f }) => {

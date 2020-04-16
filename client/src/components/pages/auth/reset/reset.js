@@ -1,12 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import jwt from 'jsonwebtoken';
-import Layout from '../../../core/layout';
-import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
-import './reset.css';
+import React, { useState, useEffect } from 'react';
 import { TextField } from '@material-ui/core';
+import Layout from '../../../core/layout';
+import jwt from 'jsonwebtoken';
 import { Button } from 'antd';
+import axios from 'axios';
+import './reset.css';
+
+
 
 const Reset = ({ match }) => {
     // props.match from react router dom
