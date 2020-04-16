@@ -1,0 +1,11 @@
+.row{
+  margin-left: 0px!important;
+  margin-right: 0px!important;
+}
+.signin-title{
+  font-weight: lighter;
+}
+.forgot{
+  text-align: left;
+  color: #512da8;
+}

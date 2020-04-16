@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import Header from '../../core/header';
+import Layout from '../../../core/layout';
 import axios from 'axios';
 import jwt from 'jsonwebtoken';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
+import './activate.css'
+import { Button } from 'antd';
 
 const Activate = ({ match }) => {
     const [values, setValues] = useState({
@@ -43,21 +45,25 @@ const Activate = ({ match }) => {
     };
 
     const activationLink = () => (
-        <div className="text-center">
-            <h1 className="p-5">Hey {name}, Ready to activate your account?</h1>
-            <button className="btn btn-outline-primary" onClick={clickSubmit}>
+        <div className=" ">
+            <h1 className=" ">Hey {name}</h1>
+            <Button className="mb-3" onClick={clickSubmit} primary type="primary">
                 Activate Account
-            </button>
+            </Button>
         </div>
     );
 
     return (
-        <Header>
-            <div className="col-md-6 offset-md-3">
-                <ToastContainer />
+        <Layout>
+        <ToastContainer />
+        <div className="container text-center mt-5">
+          <div className='row col justify-content-center'>
+             <div className='col-md-5 card pt-4'>
                 {activationLink()}
             </div>
-        </Header>
+          </div>
+        </div>
+        </Layout>
     );
 };
 

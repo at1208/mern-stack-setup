@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import Header from '../../core/header';
+import Layout from '../../../core/layout';
 import axios from 'axios';
-import { authenticate, isAuth } from './helpers';
+import { authenticate, isAuth } from '../helpers';
 import { ToastContainer, toast } from 'react-toastify';
-import Google from './google';
-import Facebook from './facebook';
+import Google from '../social/google';
+import Facebook from '../social/facebook';
 import 'react-toastify/dist/ReactToastify.min.css';
+import { TextField } from '@material-ui/core';
+import { Button } from 'antd';
+import './signin.css';
+
+
 
 const Signin = ({ history }) => {
+
     const [values, setValues] = useState({
         email: '',
         password: '',
@@ -54,39 +60,61 @@ const Signin = ({ history }) => {
 
     const signinForm = () => (
         <form>
-            <div className="form-group">
-                <label className="text-muted">Email</label>
-                <input onChange={handleChange('email')} value={email} type="email" className="form-control" />
-            </div>
 
-            <div className="form-group">
-                <label className="text-muted">Password</label>
-                <input onChange={handleChange('password')} value={password} type="password" className="form-control" />
-            </div>
+            <TextField id="Email"
+                       label="Email"
+                       variant="outlined"
+                       onChange={handleChange('email')}
+                       value={email}
+                       fullWidth={true}
+                       className="mb-2 mt-2"
+                       size="small"
+                       />
 
-            <div>
-                <button className="btn btn-primary" onClick={clickSubmit}>
+            <TextField id="Password"
+                       label="Password"
+                       variant="outlined"
+                       onChange={handleChange('password')}
+                       value={password}
+                       type="password"
+                       fullWidth={true}
+                       className="mb-2"
+                       size="small"
+                       />
+
+                <Button className=" " onClick={clickSubmit} primary type="primary">
                     {buttonText}
-                </button>
-            </div>
+                </Button>
         </form>
     );
- 
+
     return (
-        <Header>
-            <div className="col-md-6 offset-md-3">
-                <ToastContainer />
-                {isAuth() ? <Redirect to="/" /> : null}
-                <h1 className="p-5 text-center">Signin</h1>
-                <Google informParent={informParent} />
-                <Facebook informParent={informParent} />
+        <Layout>
+          <ToastContainer />
+          {isAuth() ? <Redirect to="/" /> : null}
+
+            <div className="container text-center mt-5">
+              <div className='row col justify-content-center'>
+                 <div className='col-md-5 card pt-4'>
+                   <h1 className="signin-title">Sign In</h1>
+                    <div className='row col justify-content-center pb-4'>
+                       <div className='col-md-6'>
+                         <Google informParent={informParent} />
+                       </div>
+                       <div className='col-md-6'>
+                         <Facebook informParent={informParent} />
+                       </div>
+                    </div>
+
                 {signinForm()}
-                <br />
-                <Link to="/auth/password/forgot" className="btn btn-sm btn-outline-danger">
+
+                <Link to="/auth/password/forgot" className="forgot ml-2 mb-2">
                     Forgot Password
                 </Link>
+             </div>
+             </div>
             </div>
-        </Header>
+        </Layout>
     );
 };
 

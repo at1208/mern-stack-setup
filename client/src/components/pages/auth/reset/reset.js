@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import jwt from 'jsonwebtoken';
-import Header from '../../core/header';
+import Layout from '../../../core/layout';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
+import './reset.css';
+import { TextField } from '@material-ui/core';
+import { Button } from 'antd';
 
 const Reset = ({ match }) => {
     // props.match from react router dom
@@ -51,34 +54,35 @@ const Reset = ({ match }) => {
 
     const passwordResetForm = () => (
         <form>
-            <div className="form-group">
-                <label className="text-muted">Email</label>
-                <input
-                    onChange={handleChange}
-                    value={newPassword}
-                    type="password"
-                    className="form-control"
-                    placeholder="Type new password"
-                    required
-                />
-            </div>
-
-            <div>
-                <button className="btn btn-primary" onClick={clickSubmit}>
+            <TextField id="Password"
+                       label="Type new password"
+                       variant="outlined"
+                       onChange={handleChange}
+                       value={newPassword}
+                       type="password"
+                       fullWidth={true}
+                       className="mb-2"
+                       size="small"
+                       required
+                       />
+                <Button className="mb-3" onClick={clickSubmit} primary type="primary">
                     {buttonText}
-                </button>
-            </div>
+                </Button>
         </form>
     );
 
     return (
-        <Header>
-            <div className="col-md-6 offset-md-3">
-                <ToastContainer />
-                <h1 className="p-5 text-center">Hey {name}, Type your new password</h1>
+        <Layout>
+          <ToastContainer />
+          <div className="container text-center mt-5">
+            <div className='row col justify-content-center'>
+               <div className='col-md-5 card pt-4'>
+                <h1 className=" ">Hey {name} !!!</h1>
                 {passwordResetForm()}
             </div>
-        </Header>
+          </div>
+        </div>
+        </Layout>
     );
 };
 

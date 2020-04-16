@@ -1,6 +1,9 @@
 import React from 'react';
 import FacebookLogin from 'react-facebook-login/dist/facebook-login-render-props';
 import axios from 'axios';
+import { Button } from 'antd'
+import { FaFacebookSquare } from "react-icons/fa";
+import './social.css'
 
 const Facebook = ({ informParent = f => f }) => {
     const responseFacebook = response => {
@@ -20,18 +23,20 @@ const Facebook = ({ informParent = f => f }) => {
             });
     };
     return (
-        <div className="pb-3">
             <FacebookLogin
                 appId={`154959638896320`}
                 autoLoad={false}
                 callback={responseFacebook}
                 render={renderProps => (
-                    <button onClick={renderProps.onClick} className="btn btn-primary btn-lg btn-block">
-                        <i className="fab fa-facebook pr-2"></i> Login with Facebook
-                    </button>
+                    <Button
+                     onClick={renderProps.onClick}
+                     block
+                     type="link"
+                    >
+                      <FaFacebookSquare className='facebook-logo float-left'/> <span  className="fb-text">Login with Facebook</span>
+                    </Button>
                 )}
             />
-        </div>
     );
 };
 

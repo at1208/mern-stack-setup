@@ -1,0 +1,9 @@
+.get-started-title{
+  font-weight: lighter;
+ 
+}
+@media (max-width: 388px) {
+  .get-started-title{
+    font-size: 30px;
+  }
+}

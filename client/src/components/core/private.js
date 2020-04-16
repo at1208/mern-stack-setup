@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
+ import React, { useState, useEffect } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import Header from './header';
+import Layout from './layout';
 import axios from 'axios';
 import { isAuth, getCookie, signout, updateUser } from '../pages/auth/helpers';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
+import { TextField } from '@material-ui/core';
+import { Button } from 'antd';
 
 const Private = ({ history }) => {
     const [values, setValues] = useState({
@@ -78,42 +80,69 @@ const Private = ({ history }) => {
 
     const updateForm = () => (
         <form>
-            <div className="form-group">
-                <label className="text-muted">Role</label>
-                <input defaultValue={role} type="text" className="form-control" disabled />
-            </div>
-            <div className="form-group">
-                <label className="text-muted">Name</label>
-                <input onChange={handleChange('name')} value={name} type="text" className="form-control" />
-            </div>
 
-            <div className="form-group">
-                <label className="text-muted">Email</label>
-                <input defaultValue={email} type="email" className="form-control" disabled />
-            </div>
+                <TextField id="role"
+                variant="outlined"
+                label="Role"
+                fullWidth={true}
+                value={role}
+                className="mb-2 mt-2"
+                size="small"
+                disabled
+                />
 
-            <div className="form-group">
-                <label className="text-muted">Password</label>
-                <input onChange={handleChange('password')} value={password} type="password" className="form-control" />
-            </div>
+                <TextField id="name"
+                label="Name"
+                variant="outlined"
+                fullWidth={true}
+                onChange={handleChange('name')}
+                value={name}
+                className="mb-2 mt-2"
+                size="small"
+                />
 
-            <div>
-                <button className="btn btn-primary" onClick={clickSubmit}>
+                <TextField id="email"
+                label="Email"
+                variant="outlined"
+                fullWidth={true}
+                value={email}
+                className="mb-2 mt-2"
+                size="small"
+                disabled
+                />
+
+                <TextField id="password"
+                variant="outlined"
+                label="Change password"
+                fullWidth={true}
+                className="mb-2 mt-2"
+                size="small"
+                type="password"
+                onChange={handleChange('password')}
+                value={password}
+                />
+
+
+                <Button className="mb-3" onClick={clickSubmit} primary type="primary">
                     {buttonText}
-                </button>
-            </div>
+                </Button>
+
         </form>
     );
 
     return (
-        <Header>
-            <div className="col-md-6 offset-md-3">
-                <ToastContainer />
-                <h1 className="pt-5 text-center">Private</h1>
-                <p className="lead text-center">Profile update</p>
+        <Layout>
+          <ToastContainer />
+          <div className="container text-center mt-5">
+            <div className='row col justify-content-center'>
+               <div className='col-md-5 card pt-4'>
+                <h1 className=" ">Private</h1>
+                <p className=" ">Profile update</p>
                 {updateForm()}
             </div>
-        </Header>
+          </div>
+        </div>
+        </Layout>
     );
 };
 

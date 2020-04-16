@@ -1,15 +1,15 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch} from 'react-router-dom'
 import Home from '../pages/home'
-import Signup from '../pages/auth/signup';
-import Signin from '../pages/auth/signin';
-import Activate from '../pages/auth/activate';
+import Signup from '../pages/auth/signup/signup';
+import Signin from '../pages/auth/signin/signin';
+import Activate from '../pages/auth/activate/activate';
 import Private from './private';
 import Admin from './admin';
 import PrivateRoute from '../pages/auth/privateRoute';
 import AdminRoute from '../pages/auth/adminRoute';
-import Forgot from '../pages/auth/forgot';
-import Reset from '../pages/auth/reset';
+import Forgot from '../pages/auth/forgot/forgot';
+import Reset from '../pages/auth/reset/reset';
 
 const Routes = () => {
   return (

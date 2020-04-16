@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
-import Header from '../../core/header';
+import Layout from '../../../core/layout';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
+import './forgot.css'
+import { TextField } from '@material-ui/core';
+import { Button } from 'antd';
 
 const Forgot = ({ history }) => {
     const [values, setValues] = useState({
@@ -39,27 +42,35 @@ const Forgot = ({ history }) => {
 
     const passwordForgotForm = () => (
         <form>
-            <div className="form-group">
-                <label className="text-muted">Email</label>
-                <input onChange={handleChange('email')} value={email} type="email" className="form-control" />
-            </div>
+            <TextField id="Email"
+                       label="Email"
+                       variant="outlined"
+                       onChange={handleChange('email')}
+                       value={email}
+                       fullWidth={true}
+                       size="small"
+                       className="mb-2 mt-2"
+                       />
 
-            <div>
-                <button className="btn btn-primary" onClick={clickSubmit}>
+                <Button className="mb-3 mt-1" onClick={clickSubmit} type="primary" primary>
                     {buttonText}
-                </button>
-            </div>
+                </Button>
+
         </form>
     );
 
     return (
-        <Header>
-            <div className="col-md-6 offset-md-3">
-                <ToastContainer />
-                <h1 className="p-5 text-center">Forgot password</h1>
+        <Layout>
+        <ToastContainer />
+        <div className="container text-center mt-5">
+          <div className='row col justify-content-center'>
+             <div className='col-md-5 card pt-4'>
+                <h1 className="forgot-title">Forgot password</h1>
                 {passwordForgotForm()}
             </div>
-        </Header>
+          </div>
+        </div>
+        </Layout>
     );
 };
 
